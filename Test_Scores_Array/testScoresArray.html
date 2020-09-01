@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Average Test Scores using Arrays</title>
+    <script type="text/javascript">
+    function displayValues(){
+        var entry;
+        var average;
+        var scores = [];
+        var total = 0;
+        var show = "The test scores:\n";
+
+        do{
+            entry = prompt("Enter test score\n" +
+                            "Or enter 999 to end entries" , 999);
+            entry = parseInt(entry);
+            if (entry >= 0 && entry <= 100){
+                scores[scores.length] = entry; //Trick using first element as 0 and so on. It works very well and it can substitute a for Loop for this case.
+            } else if(entry != 999){
+                prompt("Entry must be a valid number from 0 through 100\n" + 
+                "Or enter 999 to end the entries.");
+            }
+        } while(entry != 999);
+        
+        if(scores.length != 0){
+            for(var i = 0; i < scores.length; i++){
+                total = total + scores[i];
+                show = show + scores[i] + "\n";
+            }
+            //Calculating the average
+            average = parseInt(total / scores.length);
+            alert(show + "\nAverage score is " + average);
+        }
+
+        document.getElementById("scores").innerHTML = scores;
+        document.getElementById("total").innerHTML = total;
+        document.getElementById("average").innerHTML = average;
+
+                
+    }
+    
+    </script>
+</head>
+<body onload = "displayValues()">
+    <h1>Thanks for using the Test Scores Application!</h1>
+
+    <p> The array of values entered: [ <span id="scores"></span> ]</p>
+    <p> The sum of the total is: <span id="total"></span></p>
+    <p> The average is: <span id="average"></span></p>
+</body>
+</html>

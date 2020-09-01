@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Average Test Scores</title>
+    <script type="text/javascript">
+    function displayValues(){
+        var total = 0;
+        var entry;
+        var entryCount = 0;
+
+        do{
+            entry = prompt("Enter test score \n" + 
+            "Or enter 999 to end entries.", 999);
+            entry = parseInt(entry);
+            if(entry >= 0 && entry <= 100) {
+                total += entry;
+                entryCount++;
+            }
+            else if(entry != 999){
+                alert("Entry must be a valid number from 0 through 100\n" +
+                "Or enter 999 to end entries");
+            }
+        } while(entry != 999);
+
+        var average = total / entryCount;
+        average = parseInt(average);
+        alert("The average score is " + average + ".")
+
+            document.getElementById("average").innerHTML = average;
+            document.getElementById("entry_Counter").innerHTML = entryCount;
+            document.getElementById("total").innerHTML = total;
+        }
+       
+    </script>
+</head>
+<body onload = "displayValues()">
+    <h1>This page is displayed after the JavaScript is executed!</h1>
+    
+    <p>The number of values entered is : <span id="entry_Counter"></span></p>
+    <p>The sum of all the values is : <span id="total"></span></p>
+    <p>The average score is: <span id="average"></span></p>
+    
+</body>
+</html>
