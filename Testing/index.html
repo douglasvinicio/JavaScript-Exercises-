@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mouseout Event Handler</title>
+    <script type="text/javascript">
+        var $ = function(id) {return document.getElementById(id);};
+        
+
+        window.onload = function() {
+            var inputBoxAlert = $("username").addEventListener("mouseout", displayAlert);
+            function displayAlert(){ alert(
+               ($("username").value).toLowerCase()
+            )};
+    };
+
+    </script>
+</head>
+<body>
+    <label>Type something here:</label>
+    <input type="text" id="username">
+</input>
+</body>
+</html>
+
